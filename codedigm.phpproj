@@ -120,7 +120,7 @@
     <Compile Include="lib\waypoints\waypoints.min.js" />
     <Compile Include="lib\wow\wow.js" />
     <Compile Include="lib\wow\wow.min.js" />
-    <Compile Include="index.php" />
+    <Compile Include="index.html" />
     <Compile Include="Readme.txt" />
   </ItemGroup>
   <ItemGroup>
