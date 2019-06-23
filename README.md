@@ -1,2 +1,0 @@
-# codedigm
-codedigm website

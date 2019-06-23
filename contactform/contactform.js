@@ -42,7 +42,7 @@ jQuery(document).ready(function($) {
             break;
 
           case 'checked':
-            if (!i.attr('checked')) {
+            if (! i.is(':checked')) {
               ferror = ierror = true;
             }
             break;
@@ -90,9 +90,13 @@ jQuery(document).ready(function($) {
     });
     if (ferror) return false;
     else var str = $(this).serialize();
+    var action = $(this).attr('action');
+    if( ! action ) {
+      action = 'contactform/contactform.php';
+    }
     $.ajax({
       type: "POST",
-      url: "contactform/contactform.php",
+      url: action,
       data: str,
       success: function(msg) {
         // alert(msg);
