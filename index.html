@@ -254,7 +254,7 @@
             <div class="form">
               <div id="sendmessage">Your message has been sent. Thank you!</div>
               <div id="errormessage"></div>
-              <form action="" method="post" role="form" class="contactForm">
+              <form action="mailto:dean.russell.oliver@gmail.com" method="post" role="form" class="contactForm">
                 <div class="form-row">
                   <div class="form-group col-lg-6">
                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -266,11 +266,32 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <input type="text" class="form-control" name="companyName" id="companyName" placeholder="Company Name" data-rule="minlen:4" data-msg="Please enter at least 8 chars of Company Name" />
+                  <div class="validation"></div>
+                </div>
+                <div class="form-group">
+                  <select class="form-control" id="companySize" name="companySize">
+                    <option>Please select your organisations size</option>
+                    <option>Small Enterprise</option>
+                    <option>Medium Enterprise</option>
+                    <option>Large Enterprise</option>
+                    <option>Startup Or Individual</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="service" name="service">
+                      <option>Please select a service</option>
+                      <option>Cloud Integration Existing/New Solution</option>
+                      <option>Mobile Solution</option>
+                      <option>Web Based Solution</option>
+                    </select>
+                  </div>
+                <div class="form-group">
                   <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
                   <div class="validation"></div>
                 </div>
                 <div class="form-group">
-                  <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                  <textarea class="form-control" name="message" id="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
                   <div class="validation"></div>
                 </div>
                 <div class="text-right"><button type="submit" title="Send Message">Send Message</button></div>
