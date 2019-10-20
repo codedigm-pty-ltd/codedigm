@@ -23,7 +23,6 @@ namespace Codedigm.Web.Controllers
         {
             try
             {           
-
                 var message = new MailMessage();
                //TODO: save to db.
                 message.From = new MailAddress("info@codedigm.co.za");
