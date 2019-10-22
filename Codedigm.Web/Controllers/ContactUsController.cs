@@ -19,7 +19,7 @@ namespace Codedigm.Web.Controllers
     public class ContactUsController : ApiController
     {
         // POST: api/ContactUs
-        public async Task Post([FromBody]ContactUs contactUs)
+        public async Task<IHttpActionResult> Post([FromBody]ContactUs contactUs)
         {
             try
             {           
@@ -41,8 +41,10 @@ namespace Codedigm.Web.Controllers
             catch (Exception ex)
             {
                 //TODO: handle this better.
-                throw;
+                return InternalServerError();
             }
+
+            return Ok();
         }
 
         //TODO: later when we have an email format.
