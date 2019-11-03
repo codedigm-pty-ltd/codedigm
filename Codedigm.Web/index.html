@@ -251,7 +251,7 @@
                         <div class="form">
                             <div id="sendmessage">Your message has been sent. Thank you!</div>
                             <div id="errormessage">Unable to send your message. Please try again later.</div>
-                            <form action="api/contactus" method="post" role="form" class="contactForm" id="contactUsForm">
+                            <form action="https://localhost/contact/contactus.php" method="post" role="form" class="contactForm" id="contactUsForm">
                                 <div class="form-row">
                                     <div class="form-group col-lg-6">
                                         <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="required" data-msg="Please enter your name" />
@@ -287,7 +287,7 @@
                                 <div class="form-group">
                                     <textarea class="form-control" name="message" id="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>                              
                                 </div>
-                                <div class="text-right"><button type="submit" title="Send Message">Send Message</button></div>
+                                <div class="text-right"><button type="submit" name="submit" id="submit" title="Send Message">Send Message</button></div>
                             </form>
                         </div>
                     </div>
@@ -382,10 +382,11 @@
               debug: true,
               success: "valid"
             });                 
-           
-            $("form#contactUsForm").submit(function (event) {
-                    event.preventDefault(); //prevent default action
-                    var $form = $(this);
+
+            $("button#submit").click(function (event) {
+                event.preventDefault(); //prevent default action
+
+                    var $form = $("form#contactUsForm");
 
                         $form.validate({
                         wrapper: 'span',
@@ -478,10 +479,10 @@
                         $.post(post_url, form_data, function (response, textStatus, jqXHR) {                   
                             if (jqXHR.status === 200) { //OK
                                 $errorMessage.hide('fast');
-                                $sendMessage.show().delay(5000).fadeOut();
+                                $sendMessage.show().delay(4000).fadeOut();
                             } else {
                                 $sendMessage.hide('fast');
-                                $errorMessage.show().delay(5000).fadeOut();                    
+                                $errorMessage.show().delay(4000).fadeOut();                    
                             }
 
                             $form.trigger("reset");
