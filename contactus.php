@@ -11,6 +11,7 @@ $mail->Host = 'mail.codedigm.co.za'; // Specify main and backup SMTP servers
 $mail->SMTPAuth = true; // Enable SMTP authentication
 $mail->Username = 'info@codedigm.co.za'; // SMTP username
 $mail->Password = 'TestP@ssw0rd1234'; // SMTP password
+$mail->SMTPAutoTLS = false;
 //$mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 25;
 $mail->isHTML(true);
