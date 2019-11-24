@@ -1,7 +1,7 @@
 
 <?php
 header("Access-Control-Allow-Origin: *");
-require 'PHPMailer\PHPMailerAutoload.php';
+require 'PHPMailer/PHPMailerAutoload.php';
 
 // Checking For Blank Fields..
 
