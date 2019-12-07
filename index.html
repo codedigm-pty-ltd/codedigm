@@ -37,7 +37,7 @@
     />
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet" />
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- =======================================================
     Theme Name: NewBiz
     Theme URL: https://bootstrapmade.com/newbiz-bootstrap-business-template/
@@ -363,6 +363,17 @@
                     />
                   </div>
                   <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="contactNumber"
+                      id="contactNumber"
+                      placeholder="Contact Number"
+                      data-rule="required"
+                      data-msg="Please enter your contact number"
+                    />
+                  </div>
+                  <div class="form-group">
                     <select
                       class="form-control"
                       id="companySizeId"
@@ -412,6 +423,9 @@
                       placeholder="Message"
                     ></textarea>
                   </div>
+                  <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6Leic8UUAAAAAJfAEczSds53EsV0ULhQcdaOI3dy"></div>
+                </div>
                   <div class="text-right">
                     <button
                       type="submit"
