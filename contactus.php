@@ -23,12 +23,13 @@ try {
     $name = $_POST["name"];
     $email = $_POST["email"];
     $companyName = $_POST["companyName"];
+    $contactNumber = $_POST["contactNumber"];
     $companySizeId = $_POST["companySizeId"];
     $serviceId = $_POST["serviceId"];
     $subject = $_POST["subject"];
     $message = $_POST["message"];
 
-    if ($name == "" || $email == "" || $companyName == "" || $companySizeId == "" || $serviceId == "" || $subject == "" || $message == "") {
+    if ($name == "" || $email == "" || $companyName == "" || $companySizeId == "" || $serviceId == "" || $subject == "" || $message == "" || $contactNumber == "") {
         echo "Fill All Fields..";
     } else {
         //captcha stuff
@@ -36,7 +37,8 @@ try {
         $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
         $responseKeys = json_decode($response,true);
         if(intval($responseKeys["success"]) !== 1) {
-            echo '<p class="alert alert-warning">Please check the the captcha form.</p>';
+            echo 'Please tick "I am not a Robot" on the form.';
+            http_response_code(422);
          } else {
             // Check if the "Sender's Email" input field is filled out
             // Sanitize E-mail Address
@@ -49,7 +51,7 @@ try {
                 $mail->setFrom($email, 'Mailer');
                 $mail->addAddress('info@codedigm.co.za', 'Info Codedigm');
                 $mail->Subject = "Company Website Lead - " . $subject;
-                $formattedBody = "Name: <b>" . $name . "</b><br>" . "Email: <b>" . $email . "</b><br>" . "Company Name: <b>" . $companyName . "</b><br>" . "Company Size: <b>" . getCompanySize($companySizeId) . "</b><br>" . "Service: <b>" . getService($serviceId) . "</b><br>" . "Message: <b>" . $message . "</b>";
+                $formattedBody = "Name: <b>" . $name . "</b><br>" . "Email: <b>" . $email . "</b><br>" . "Company Name: <b>" . $companyName . "</b><br>" . "Contact Number: <b>" . $contactNumber . "</b><br>" . "Company Size: <b>" . getCompanySize($companySizeId) . "</b><br>" . "Service: <b>" . getService($serviceId) . "</b><br>" . "Message: <b>" . $message . "</b>";
 
                 $mail->Body = $formattedBody;
                 if (!$mail->send()) {
