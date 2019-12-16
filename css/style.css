@@ -189,6 +189,13 @@ h6 {
   float: left;
 }
 
+#intro .intro-info h1 {
+  color: #fff;
+  margin-bottom: 40px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
 #intro .intro-info h2 {
   color: #fff;
   margin-bottom: 40px;
